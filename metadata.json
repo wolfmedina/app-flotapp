@@ -1,0 +1,9 @@
+{
+  "name": "FlotApp",
+  "description": "Gestión de flotas y logística para conductores profesionales.",
+  "requestFramePermissions": [
+    "geolocation",
+    "camera",
+    "microphone"
+  ]
+}
