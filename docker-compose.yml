@@ -2,12 +2,13 @@ version: '3.8'
 
 services:
   app-flotapp:
+    image: app-flotapp:latest
     build:
       context: .
       dockerfile: Dockerfile
     container_name: app-flotapp
     ports:
-      - "${HOST_PORT:-8347}:3000"
+      - "8347:3000"
     environment:
       - NODE_ENV=production
       - GEMINI_API_KEY=${GEMINI_API_KEY:-your-gemini-api-key-here}
@@ -18,9 +19,3 @@ services:
       timeout: 10s
       retries: 3
       start_period: 40s
-    networks:
-      - app-network
-
-networks:
-  app-network:
-    driver: bridge

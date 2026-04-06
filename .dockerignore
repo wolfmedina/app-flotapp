@@ -5,10 +5,9 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 
-# Build outputs
+# Build outputs (serán reconstruidos en el container)
 dist
 dist-ssr
-*.local
 
 # IDE and editor files
 .vscode
@@ -25,11 +24,14 @@ Thumbs.db
 .git
 .gitignore
 
-# Docker files (not needed in build context)
+# Docker files
 Dockerfile
 docker-compose.yml
 docker-compose.simple.yml
 .dockerignore
+build-local.sh
+build-local.bat
+README-Docker.md
 
 # Logs
 logs
@@ -45,3 +47,7 @@ temp
 # Documentation
 README.md
 LICENSE
+
+# Temporary files
+*.tmp
+*.temp
