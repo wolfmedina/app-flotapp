@@ -3,9 +3,6 @@ version: '3.8'
 services:
   app-flotapp:
     image: app-flotapp:latest
-    build:
-      context: .
-      dockerfile: Dockerfile
     container_name: app-flotapp
     ports:
       - "8347:3000"
