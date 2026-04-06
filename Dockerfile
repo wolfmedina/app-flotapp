@@ -3,11 +3,11 @@ FROM node:20-alpine AS builder
 
 WORKDIR /app
 
-# Copy package files
+# Copy package files first for better caching
 COPY package*.json ./
 
-# Install dependencies
-RUN npm ci --only=production
+# Install all dependencies (including dev for build)
+RUN npm install
 
 # Copy source code
 COPY . .
@@ -27,12 +27,14 @@ RUN apk add --no-cache tzdata
 ENV NODE_ENV=production
 ENV PORT=3000
 
-# Copy node_modules and build from builder stage
-COPY --from=builder /app/node_modules ./node_modules
-COPY --from=builder /app/dist ./dist
-COPY --from=builder /app/package*.json ./
-COPY --from=builder /app/server.ts ./
-COPY --from=builder /app/index.html ./
+# Copy only necessary files
+COPY package*.json ./
+COPY server.ts ./
+COPY index.html ./
+COPY dist ./dist
+
+# Install only production dependencies
+RUN npm ci --only=production
 
 # Expose port
 EXPOSE 3000

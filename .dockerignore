@@ -10,11 +10,6 @@ dist
 dist-ssr
 *.local
 
-# Environment variables
-.env
-.env.local
-.env.*.local
-
 # IDE and editor files
 .vscode
 .idea
@@ -30,9 +25,10 @@ Thumbs.db
 .git
 .gitignore
 
-# Docker
+# Docker files (not needed in build context)
 Dockerfile
 docker-compose.yml
+docker-compose.simple.yml
 .dockerignore
 
 # Logs
@@ -45,3 +41,7 @@ coverage
 # Cache
 .cache
 temp
+
+# Documentation
+README.md
+LICENSE
