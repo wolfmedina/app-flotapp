@@ -17,7 +17,7 @@ echo 4. Configura las variables de entorno
 echo 5. Deploy
 echo.
 echo Comandos útiles:
-echo   docker run -d --name app-flotapp -p 8347:3000 app-flotapp:latest
+echo   docker run -d --name app-flotapp -p 8111:3000 app-flotapp:latest
 echo   docker logs app-flotapp
 echo   docker-compose up -d
 
